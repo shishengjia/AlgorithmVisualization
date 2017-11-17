@@ -1,6 +1,7 @@
+package CircleAnimation;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 
 
 /**
@@ -50,7 +51,10 @@ public class AlgorithmFrame extends JFrame{
             AlgoVisHelper.setStrokeWidth(g2d, 1);
             AlgoVisHelper.setColor(g2d, Color.RED);
             for(Circle circle: circles)
-                AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getRadius());
+                if(circle.isFilled)
+                    AlgoVisHelper.fillCircle(g2d, circle.x, circle.y, circle.getRadius());
+                else
+                    AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getRadius());
         }
 
         @Override
