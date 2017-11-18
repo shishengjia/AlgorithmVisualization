@@ -75,13 +75,15 @@ public class AlgoVisHelper {
     }
 
     public static void openAntiAliased(Graphics2D g2d, boolean isopen){
+        RenderingHints hints = null;
         if(isopen){
-            RenderingHints hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
+            hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
         }else{
-            RenderingHints hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
+            hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_OFF);
         }
+        g2d.addRenderingHints(hints);
 
     }
 
