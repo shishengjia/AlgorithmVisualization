@@ -1,18 +1,35 @@
-package SelectionSortVis;
+package InsertionSortVis;
 
-public class SelectionSortData {
+import java.util.Arrays;
+
+public class InsertionSortData {
 
     private int[] numbers;
     public int orderedIndex;
-    public int currentMinIndex;
-    public int currentCompareIndex;
+    public int currentIndex;
+
+    public enum Type{
+        Default,
+        NearlyOrdered,
+    }
 
 
-    public SelectionSortData(int N, int randomBounds){
+    public InsertionSortData(int N, int randomBounds, Type type){
         numbers = new int[N];
 
         for(int i = 0; i < N; i++)
             numbers[i] = (int)(Math.random()*randomBounds) + 1;
+
+        if(type == Type.NearlyOrdered){
+            Arrays.sort(numbers);
+            int swap_time = (int)(0.02*N);
+            for(int i = 0; i < swap_time; i++){
+
+                int x = (int)(Math.random()*N);
+                int y = (int)(Math.random()*N);
+                swap(x, y);
+            }
+        }
     }
 
     public int length(){
